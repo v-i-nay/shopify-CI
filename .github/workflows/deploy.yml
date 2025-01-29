@@ -19,4 +19,6 @@ jobs:
       - name: Authenticate and Deploy Theme
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_ADMIN_API_TOKEN }}
-        run: shopify theme push --store kpw1fv-su.myshopify.com --theme 174657732887 --force --allow-live
+          SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STORE_URL }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+        run: shopify theme push --store $SHOPIFY_STORE_URL --theme $SHOPIFY_THEME_ID --force --allow-live
